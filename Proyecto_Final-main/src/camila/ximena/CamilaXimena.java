@@ -285,10 +285,17 @@ public class CamilaXimena {
         Cliente cliente4 = new Cliente(4, "Erick Cano", "Puertas del Sol", "1056432675");
         Cliente cliente5 = new Cliente(5, "Maria Nieves", "Avenida 12 de Octubre", "86353627");
 
-        Proveedor proveedor = new Proveedor(1, "Proveedor Tech", "321-111-222");
-        Categoria categoriaTecnologia = new Categoria(1, CategoriaProducto.TECNOLOGIA);
-        Categoria categoriaRopa = new Categoria(2, CategoriaProducto.ROPA);
-        Proveedor proveedorTextil = new Proveedor(2, "Textiles Unidos", "555-123-456");
+        Proveedor proveedor = new Proveedor(1, "Proveedor Bimbo", "321-111-222");
+        Categoria categoriaAbarrotes = new Categoria(1, CategoriaProducto.Abarrotes);
+        
+        Proveedor proveedor2 = new Proveedor(2, "Proveedor Carnecol", "321-567-3456");
+        Categoria categoriaCarnicos = new Categoria(2, CategoriaProducto.Carnicos);
+        
+        Proveedor proveedor3 = new Proveedor(3, "Los Cedros", "878-70-00");
+        Categoria categoriaAseo = new Categoria(3, CategoriaProducto.Carnicos);
+        
+        Proveedor proveedor4 = new Proveedor(4, "Colanta", "313-456-7876");
+        Categoria categoriaLacteos = new Categoria(4, CategoriaProducto.Lacteos);
 
          
 
