@@ -257,7 +257,44 @@ public class CamilaXimena {
                 metodoPago.imprimirDetalles();
             }
         }
+        
     }
+      
+    static class Pedido {
+        int id;
+        Cliente cliente;
+        List<Producto> productos;
+        Date fecha;
+
+        public Pedido(int id, Cliente cliente) {
+            this.id = id;
+            this.cliente = cliente;
+            this.fecha = new Date();
+            this.productos = new ArrayList<>();
+        }
+
+        public void agregarProducto(Producto p) {
+            productos.add(p);
+        }
+    }
+    
+    // La clase FormaPago original se ha reemplazado con la interfaz MetodoPago y sus implementaciones.
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Crear cliente
+        Cliente cliente = new Cliente(1, "Ana Torres", "Calle Luna 45", "312345678");
+        Cliente cliente2 = new Cliente(2, "Carlos Pérez", "Avenida Sol 10", "987654321");
+
+        // Crear proveedor y categoría
+        Proveedor proveedor = new Proveedor(1, "Proveedor Tech", "321-111-222");
+        Categoria categoriaTecnologia = new Categoria(1, CategoriaProducto.TECNOLOGIA);
+        Categoria categoriaRopa = new Categoria(2, CategoriaProducto.ROPA);
+        Proveedor proveedorTextil = new Proveedor(2, "Textiles Unidos", "555-123-456");
+
+         
 
 }
 
