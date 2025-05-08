@@ -207,6 +207,57 @@ public class CamilaXimena {
             return cantidad + " x " + producto.nombre + " = $" + subtotal();
         }
     }
+      static class Venta {
+        int id;
+        Cliente cliente;
+        List<DetalleVenta> detalles;
+        Date fecha;
+        MetodoPago metodoPago;
+        EstadoPago estadoPago;
+
+        public Venta(int id, Cliente cliente) {
+            this.id = id;
+            this.cliente = cliente;
+            this.fecha = new Date();
+            this.detalles = new ArrayList<>();
+            this.estadoPago = EstadoPago.PENDIENTE;
+        }
+
+        public void agregarDetalle(DetalleVenta detalle) {
+            detalles.add(detalle);
+        }
+
+        public double total() {
+            return detalles.stream().mapToDouble(DetalleVenta::subtotal).sum();
+        }
+
+        public void setMetodoPago(MetodoPago metodoPago) {
+            this.metodoPago = metodoPago;
+        }
+
+        public void procesarPago() {
+            if (this.metodoPago != null) {
+                this.metodoPago.procesarPago(total());
+                this.estadoPago = EstadoPago.PAGADO;
+                this.metodoPago.imprimirDetalles();
+            } else {
+                System.out.println("No se ha asignado un método de pago.");
+            }
+        }
+
+        public void imprimirFactura() {
+            System.out.println("Venta #" + id + " - Cliente: " + cliente.nombre);
+            for (DetalleVenta d : detalles) {
+                System.out.println(d.descripcion());
+            }
+            System.out.println("TOTAL: $" + total());
+            System.out.println("Estado del Pago: " + estadoPago);
+            if (metodoPago != null) {
+                System.out.println("Método de Pago: " + metodoPago.getTipo());
+                metodoPago.imprimirDetalles();
+            }
+        }
+    }
 
 }
 
