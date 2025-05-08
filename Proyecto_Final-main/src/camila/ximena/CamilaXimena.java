@@ -285,7 +285,7 @@ public class CamilaXimena {
         Cliente cliente4 = new Cliente(4, "Erick Cano", "Puertas del Sol", "1056432675");
         Cliente cliente5 = new Cliente(5, "Maria Nieves", "Avenida 12 de Octubre", "86353627");
 
-        Proveedor proveedor = new Proveedor(1, "Proveedor Bimbo", "321-111-222");
+        Proveedor proveedor1 = new Proveedor(1, "Proveedor Bimbo", "321-111-222");
         Categoria categoriaAbarrotes = new Categoria(1, CategoriaProducto.Abarrotes);
         
         Proveedor proveedor2 = new Proveedor(2, "Proveedor Carnecol", "321-567-3456");
@@ -296,8 +296,58 @@ public class CamilaXimena {
         
         Proveedor proveedor4 = new Proveedor(4, "Colanta", "313-456-7876");
         Categoria categoriaLacteos = new Categoria(4, CategoriaProducto.Lacteos);
+        
+       // Crear productos
+        Producto arroz = new Producto(1, "arroz", 1500.0, categoriaAbarrotes, proveedor);
+        Producto papel = new Producto(2, "papel", 25.0, categoriaAseo, proveedor);
+        Producto Leche = new Producto(3, "Leche", 20.0, categoriaLacteos, proveedorTextil);
 
-         
+       
+      
+        Inventario inv1 = new Inventario(laptop, 10);
+        Inventario inv2 = new Inventario(mouse, 50);
+        Inventario inv3 = new Inventario(camiseta, 100);
 
+        // Crear venta 1
+        Venta venta1 = new Venta(1, cliente);
+        venta1.agregarDetalle(new DetalleVenta(laptop, 1));
+        venta1.agregarDetalle(new DetalleVenta(mouse, 2));
+
+        System.out.println("--- Factura Venta 1 ---");
+        venta1.imprimirFactura();
+
+        // Asignar y procesar pago con tarjeta para venta 1
+        PagoTarjeta pagoTarjeta1 = new PagoTarjeta("1234-5678-9012-3456");
+        venta1.setMetodoPago(pagoTarjeta1);
+        System.out.println("\n--- Realizando Pago Venta 1 ---");
+        venta1.procesarPago();
+        System.out.println("\n--- Factura Venta 1 con Pago ---");
+        venta1.imprimirFactura();
+
+        // Crear venta 2
+        Venta venta2 = new Venta(2, cliente2);
+        venta2.agregarDetalle(new DetalleVenta(camiseta, 3));
+
+        System.out.println("\n--- Factura Venta 2 ---");
+        venta2.imprimirFactura();
+
+        // Asignar y procesar pago en efectivo para venta 2
+        PagoEfectivo pagoEfectivo2 = new PagoEfectivo();
+        venta2.setMetodoPago(pagoEfectivo2);
+        System.out.println("\n--- Realizando Pago Venta 2 ---");
+        venta2.procesarPago();
+        System.out.println("\n--- Factura Venta 2 con Pago ---");
+        venta2.imprimirFactura();
+
+        // Crear pedido
+        Pedido pedido = new Pedido(1, cliente);
+        pedido.agregarProducto(laptop);
+        pedido.agregarProducto(mouse);
+        pedido.agregarProducto(camiseta);
+        System.out.println("\n--- Pedido Cliente 1 ---");
+        for (Producto p : pedido.productos) {
+            System.out.println("- " + p.nombre);
+        }
+    }
 }
 
