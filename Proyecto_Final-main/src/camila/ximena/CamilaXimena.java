@@ -281,6 +281,9 @@ public class CamilaXimena {
     public static void main(String[] args) {
         Cliente cliente = new Cliente(1, "Ana Torres", "Calle Luna 45", "312345678");
         Cliente cliente2 = new Cliente(2, "Carlos Pérez", "Avenida Sol 10", "987654321");
+        Cliente cliente3 = new Cliente(3, "Ximena Orozco", "Eucalipto", "3245640493");
+        Cliente cliente4 = new Cliente(4, "Erick Cano", "Puertas del Sol", "1056432675");
+        Cliente cliente5 = new Cliente(5, "Maria Nieves", "Avenida 12 de Octubre", "86353627");
 
         Proveedor proveedor = new Proveedor(1, "Proveedor Tech", "321-111-222");
         Categoria categoriaTecnologia = new Categoria(1, CategoriaProducto.TECNOLOGIA);
