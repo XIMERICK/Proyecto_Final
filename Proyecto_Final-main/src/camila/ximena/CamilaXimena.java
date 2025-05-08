@@ -278,17 +278,10 @@ public class CamilaXimena {
         }
     }
     
-    // La clase FormaPago original se ha reemplazado con la interfaz MetodoPago y sus implementaciones.
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // Crear cliente
         Cliente cliente = new Cliente(1, "Ana Torres", "Calle Luna 45", "312345678");
         Cliente cliente2 = new Cliente(2, "Carlos Pérez", "Avenida Sol 10", "987654321");
 
-        // Crear proveedor y categoría
         Proveedor proveedor = new Proveedor(1, "Proveedor Tech", "321-111-222");
         Categoria categoriaTecnologia = new Categoria(1, CategoriaProducto.TECNOLOGIA);
         Categoria categoriaRopa = new Categoria(2, CategoriaProducto.ROPA);
