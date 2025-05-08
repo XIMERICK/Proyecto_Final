@@ -190,6 +190,23 @@ public class CamilaXimena {
         }
 
     }
+     static class DetalleVenta {
+        Producto producto;
+        int cantidad;
+
+        public DetalleVenta(Producto producto, int cantidad) {
+            this.producto = producto;
+            this.cantidad = cantidad;
+        }
+
+        public double subtotal() {
+            return producto.precio * cantidad;
+        }
+
+        public String descripcion() {
+            return cantidad + " x " + producto.nombre + " = $" + subtotal();
+        }
+    }
 
 }
 
